@@ -16,223 +16,22 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        background-color: #525659;
-        display: flex;
-        justify-content: center;
-        font-family: "Inter", sans-serif;
-        color: #111;
-        padding: 2rem;
-        line-height: 1.4;
-      }
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-
-      /* A4 Page */
-      .page {
-        background: white;
-        width: 210mm;
-        min-height: 297mm;
-        padding: 15mm;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        position: relative;
-      }
-
-      /* Typography */
-      h1,
-      h2,
-      h3 {
-        font-family: "Merriweather", serif;
-      }
-      .section-title {
-        font-size: 13pt;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        border-bottom: 2px solid #000;
-        padding-bottom: 3px;
-        margin: 14px 0 10px 0;
-        color: #000;
-      }
-
-      /* Header */
-      .name {
-        font-size: 24pt;
-        color: #000;
-        margin-bottom: 6px;
-        line-height: 1.2;
-      }
-      .contact-info {
-        display: flex;
-        flex-wrap: wrap;
-        row-gap: 5px;
-        column-gap: 14px;
-        font-size: 8.5pt;
-        color: #444;
-      }
-      .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .contact-item i {
-        color: #000;
-        font-size: 9pt;
-      }
-
-      /* Two-Column Grid */
-      .grid-container {
-        display: grid;
-        grid-template-columns: 1.5fr 1fr;
-        gap: 24px;
-      }
-
-      /* Entries */
-      .entry {
-        margin-bottom: 8px;
-        break-inside: avoid;
-        page-break-inside: avoid;
-      }
-      .entry + .entry {
-        border-top: 1px dashed #aaa;
-        padding-top: 8px;
-      }
-      .entry-header {
-        margin-bottom: 6px;
-      }
-      .entry-title {
-        font-size: 11pt;
-        color: #000;
-        line-height: 1.2;
-        font-weight: 500;
-      }
-      .entry-subtitle {
-        font-weight: 600;
-        font-size: 9.5pt;
-        color: #000;
-        margin-top: 2px;
-        margin-bottom: 4px;
-      }
-      .entry-meta {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 8.5pt;
-        color: #555;
-      }
-      .meta-group {
-        display: flex;
-        gap: 12px;
-        align-items: center;
-      }
-      .meta-item {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-      }
-      .meta-item i {
-        color: #000;
-        font-size: 9pt;
-      }
-      .entry-desc {
-        font-size: 9.5pt;
-        margin-left: 16px;
-        margin-bottom: 6px;
-        color: #222;
-      }
-      .entry-desc li {
-        margin-bottom: 3px;
-      }
-
-      /* Tech Tags */
-      .tag-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 4px;
-        margin-top: 4px;
-      }
-      .tag {
-        border: 1px solid #aaa;
-        border-radius: 4px;
-        padding: 2px 5px;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 7pt;
-        background: transparent;
-        color: #000;
-        display: inline-flex;
-        align-items: center;
-      }
-
-      /* Skill Subsections */
-      .skill-group {
-        margin-bottom: 10px;
-        break-inside: avoid;
-      }
-
-      .skill-title {
-        font-size: 8.5pt;
-        font-weight: 600;
-        margin-bottom: 4px;
-        color: #000;
-      }
-
-      .side-list {
-        font-size: 9.5pt;
-        list-style-type: disc;
-        margin-left: 16px;
-        color: #222;
-      }
-      .side-list li {
-        margin-bottom: 3px;
-      }
-
-      /* KaTeX inside tag */
-      .tag .katex {
-        font-size: 7pt;
-      }
-
-      /* Print */
-      @media print {
-        @page {
-          size: A4;
-          margin: 0;
-        }
-        body {
-          background: white;
-          padding: 0;
-        }
-        .page {
-          width: 210mm;
-          min-height: 297mm;
-          box-shadow: none;
-          padding: 15mm;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="id">ID</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
     <div class="page">
       <div class="grid-container">
         <main>
-          <h1 class="name">Kadek Agus Arya Pranata</h1>
+          <h1 class="name" data-i18n="name"></h1>
           <div class="contact-info">
             <div class="contact-item">
               <i class="fa-solid fa-envelope"></i>
-              <a href="mailto:kadekaguspnata@gmail.com"
-                >kadekaguspnata@gmail.com</a
-              >
+              <a href="mailto:kadekaguspnata@gmail.com">kadekaguspnata@gmail.com</a>
             </div>
             <div class="contact-item">
               <i class="fa-brands fa-github"></i>
@@ -240,44 +39,32 @@
             </div>
             <div class="contact-item">
               <i class="fa-solid fa-location-dot"></i>
-              Badung, Bali
+              <span data-i18n="location"></span>
             </div>
           </div>
 
-          <h2 class="section-title">Pengalaman & Proyek</h2>
+          <h2 class="section-title" data-i18n="section_experience"></h2>
 
           <article class="entry">
             <div class="entry-header">
-              <div class="entry-title">Terbuku AI</div>
-              <div class="entry-subtitle">
-                Manajemen keuangan pribadi terintegrasi AI
-              </div>
+              <div class="entry-title" data-i18n="project_terbuku_title"></div>
+              <div class="entry-subtitle" data-i18n="project_terbuku_subtitle"></div>
               <div class="entry-meta">
                 <div class="meta-group">
-                  <span class="meta-item"
-                    ><i class="fa-regular fa-calendar"></i> Nov 2025 - Dec
-                    2025</span
-                  >
+                  <span class="meta-item">
+                    <i class="fa-regular fa-calendar"></i> Nov 2025 - Dec 2025
+                  </span>
                 </div>
                 <div class="meta-group">
-                  <a
-                    href="https://github.com/auttomus/terbuku-ai"
-                    class="meta-item"
-                  >
+                  <a href="https://github.com/auttomus/terbuku-ai" class="meta-item">
                     <i class="fa-brands fa-github"></i> auttomus/terbuku-ai
                   </a>
                 </div>
               </div>
             </div>
             <ul class="entry-desc">
-              <li>
-                Mengembangkan aplikasi manajemen keuangan yang sepenuhnya
-                terintegrasi AI menggunakan framework NextJS.
-              </li>
-              <li>
-                Memperoleh juara 3 pada kompetisi Young Coder World Cup kategori
-                AI & Games Senior tingkat Nasional Tahun 2025.
-              </li>
+              <li data-i18n="project_terbuku_desc1"></li>
+              <li data-i18n="project_terbuku_desc2"></li>
             </ul>
             <div class="tag-container">
               <span class="tag">AI/LLM</span>
@@ -292,40 +79,24 @@
 
           <article class="entry">
             <div class="entry-header">
-              <div class="entry-title">RUP Analytics Engine</div>
-              <div class="entry-subtitle">
-                Dasbor analitik interaktif data Rencana Umum Pengadaan
-                pemerintah
-              </div>
+              <div class="entry-title" data-i18n="project_rup_title"></div>
+              <div class="entry-subtitle" data-i18n="project_rup_subtitle"></div>
               <div class="entry-meta">
                 <div class="meta-group">
-                  <span class="meta-item"
-                    ><i class="fa-regular fa-calendar"></i> Apr 2026</span
-                  >
+                  <span class="meta-item">
+                    <i class="fa-regular fa-calendar"></i> Apr 2026
+                  </span>
                 </div>
                 <div class="meta-group">
-                  <a
-                    href="https://github.com/auttomus/rup-analytics-engine"
-                    class="meta-item"
-                  >
-                    <i class="fa-brands fa-github"></i>
-                    auttomus/rup-analytics-engine
+                  <a href="https://github.com/auttomus/rup-analytics-engine" class="meta-item">
+                    <i class="fa-brands fa-github"></i> auttomus/rup-analytics-engine
                   </a>
                 </div>
               </div>
             </div>
             <ul class="entry-desc">
-              <li>
-                Mengimplementasikan pendekatan <i>Machine Learning</i> yang
-                dipadukan dengan pemrosesan bahasa alami untuk secara otomatis
-                mengelompokkan paket pengadaan berdasarkan kesamaan semantik
-                teks serta metadata kategorial.
-              </li>
-              <li>
-                Fasilitas eksplorasi data secara mendalam melalui
-                <i>Scatter Plots</i>, <i>Bar Distributions</i>, <i>Treemaps</i>,
-                dan hierarki <i>Sunburst</i>.
-              </li>
+              <li data-i18n="project_rup_desc1"></li>
+              <li data-i18n="project_rup_desc2"></li>
             </ul>
             <div class="tag-container">
               <span class="tag">ML/NLP</span>
@@ -339,44 +110,27 @@
 
           <article class="entry">
             <div class="entry-header">
-              <div class="entry-title">PILAR</div>
-              <div class="entry-subtitle">
-                Sistem penunjang keputusan Program Studi berbasis Algoritma
-                Vektor RIASEC
-              </div>
+              <div class="entry-title" data-i18n="project_pilar_title"></div>
+              <div class="entry-subtitle" data-i18n="project_pilar_subtitle"></div>
               <div class="entry-meta">
                 <div class="meta-group">
-                  <span class="meta-item"
-                    ><i class="fa-regular fa-calendar"></i> May 2026</span
-                  >
+                  <span class="meta-item">
+                    <i class="fa-regular fa-calendar"></i> May 2026
+                  </span>
                 </div>
                 <div class="meta-group">
-                  <a
-                    href="https://github.com/auttomus/pilar-project"
-                    class="meta-item"
-                  >
+                  <a href="https://github.com/auttomus/pilar-project" class="meta-item">
                     <i class="fa-brands fa-github"></i> auttomus/pilar-project
                   </a>
-                  <a
-                    href="https://github.com/auttomus/pilar-project/blob/master/documents/paper.pdf"
-                    class="meta-item"
-                  >
-                    <i class="fa-regular fa-clipboard"></i> Karya Ilmiah
+                  <a href="https://github.com/auttomus/pilar-project/blob/master/documents/paper.pdf" class="meta-item">
+                    <i class="fa-regular fa-clipboard"></i> <span data-i18n="project_pilar_paper"></span>
                   </a>
                 </div>
               </div>
             </div>
             <ul class="entry-desc">
-              <li>
-                Berkontribusi sebagai <i>Lead Engineer</i>,
-                <i>Data Scientist</i>, <i>Backend</i> dalam sebuah tim
-                beranggotakan 4 orang.
-              </li>
-              <li>
-                Menerapkan metodologi matematis dalam algoritma rekomendasi
-                dengan menentukan tingkat kemiripan antara vektor pengguna dan
-                vektor program studi melalui <i>cosine similarity</i>.
-              </li>
+              <li data-i18n="project_pilar_desc1"></li>
+              <li data-i18n="project_pilar_desc2"></li>
             </ul>
             <div class="tag-container">
               <span class="tag">Vite</span>
@@ -391,16 +145,13 @@
 
           <article class="entry">
             <div class="entry-header">
-              <div class="entry-title">Sotto</div>
-              <div class="entry-subtitle">
-                Platform portofolio dan media sosial siswa
-              </div>
+              <div class="entry-title" data-i18n="project_sotto_title"></div>
+              <div class="entry-subtitle" data-i18n="project_sotto_subtitle"></div>
               <div class="entry-meta">
                 <div class="meta-group">
-                  <span class="meta-item"
-                    ><i class="fa-regular fa-calendar"></i> May 2026 -
-                    Ongoing</span
-                  >
+                  <span class="meta-item">
+                    <i class="fa-regular fa-calendar"></i> May 2026 - Ongoing
+                  </span>
                 </div>
                 <div class="meta-group">
                   <a href="https://github.com/auttomus/sotto" class="meta-item">
@@ -410,15 +161,8 @@
               </div>
             </div>
             <ul class="entry-desc">
-              <li>
-                Berkontribusi sebagai <i>Lead Engineer</i>,
-                <i>System Designer</i> dan <i>Backend</i> dalam sebuah tim
-                beranggotakan 4 orang.
-              </li>
-              <li>
-                Menerapkan metodologi matematis dalam algoritma rekomendasi
-                post.
-              </li>
+              <li data-i18n="project_sotto_desc1"></li>
+              <li data-i18n="project_sotto_desc2"></li>
             </ul>
             <div class="tag-container">
               <span class="tag">NestJS</span>
@@ -436,7 +180,7 @@
         </main>
 
         <aside>
-          <h2 class="section-title">Kemampuan</h2>
+          <h2 class="section-title" data-i18n="section_skills"></h2>
 
           <div class="skill-group">
             <div class="skill-title">Languages</div>
@@ -521,44 +265,43 @@
             </div>
           </div>
 
-          <h2 class="section-title">Bahasa</h2>
+          <h2 class="section-title" data-i18n="section_languages"></h2>
           <ul class="side-list">
-            <li>Indonesia (Native)</li>
-            <li>English (Conversational)</li>
-            <li>日本語 (Beginner)</li>
+            <li data-i18n="lang_id"></li>
+            <li data-i18n="lang_en"></li>
+            <li data-i18n="lang_jp"></li>
           </ul>
 
-          <h2 class="section-title">Kontes & Lainnya</h2>
+          <h2 class="section-title" data-i18n="section_contests"></h2>
           <ul class="side-list">
-            <li>Young Coder World Cup (Nasional)</li>
-            <li>LKS Matematika (Regional)</li>
-            <li>LKS Web Technologies (Regional)</li>
-            <li>Kontributor <i>Open Source</i> Aktif</li>
+            <li data-i18n="contest_ycwc"></li>
+            <li data-i18n="contest_math"></li>
+            <li data-i18n="contest_web"></li>
+            <li data-i18n="contest_os"></li>
           </ul>
 
-          <h2 class="section-title">Pendidikan</h2>
+          <h2 class="section-title" data-i18n="section_education"></h2>
 
           <article class="entry">
             <div class="entry-header">
-              <div class="entry-title">Rekayasa Perangkat Lunak (RPL)</div>
-              <div class="entry-subtitle">SMK Negeri 1 Denpasar</div>
+              <div class="entry-title" data-i18n="edu_rpl"></div>
+              <div class="entry-subtitle" data-i18n="edu_school"></div>
               <div class="entry-meta">
                 <div class="meta-group">
-                  <span class="meta-item"
-                    ><i class="fa-regular fa-calendar"></i> 2024 - Ongoing</span
-                  >
+                  <span class="meta-item">
+                    <i class="fa-regular fa-calendar"></i> 2024 - Ongoing
+                  </span>
                 </div>
                 <div class="meta-group">
-                  <span class="meta-item"
-                    ><i class="fa-solid fa-location-dot"></i> Denpasar,
-                    Bali</span
-                  >
+                  <span class="meta-item">
+                    <i class="fa-solid fa-location-dot"></i> Denpasar, Bali
+                  </span>
                 </div>
               </div>
             </div>
             <ul class="entry-desc">
-              <li>Partisipan aktif dalam berbagai perlombaan.</li>
-              <li>Materi yang sempat/aktif diajarkan:</li>
+              <li data-i18n="edu_desc1"></li>
+              <li data-i18n="edu_desc2"></li>
             </ul>
             <div class="tag-container">
               <span class="tag">C</span>
@@ -579,5 +322,8 @@
         </aside>
       </div>
     </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
